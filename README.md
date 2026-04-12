@@ -9,5 +9,6 @@ Materials may be called from another script like so:
     : 1.448333
     
 You can pass/return multiple wavelengths/indices. They must in a numpy.array (not [list]), as so:
+
     >>> nk.SiO(  numpy.array([1.550, 1.551, 1.552])  )       
     : array([ 1.4483336 ,  1.44832036,  1.44830712])
