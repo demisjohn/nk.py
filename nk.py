@@ -1101,6 +1101,48 @@ def a_Si( wl ):
 #end a_Si
 
 
+
+
+
+def SU8_2000( wl ):
+    ''' 
+    Return refractive index for 
+    Microchem SU-8 2000 permanent epoxy negative photoresist. Uncured.
+    
+    
+    Valid from 0.32–0.8µm
+    
+    https://refractiveindex.info/?shelf=other&book=Microchem_SU8_2000&page=specs
+    Microchem SU-8 2000 Data Sheet, 2011
+    
+    Cauchy: 
+    A = 1.566
+    B = 0.00796
+    C = 0.00014
+    𝑛=1.566+0.00796λ^−2+0.00014λ^−4
+    
+    Parameters
+    ----------
+        wl: wavelength in microns (float)
+    
+    Returns
+    -------
+        Refractive index (float)
+    
+    Raises
+    ------
+        Warning for wavelength out of model range
+    
+    '''
+    check_wl(wl, 0.32, 0.8, 'SU8_2000')
+    return cauchy( [1.566, 0.00796, 0.00014],  wl)
+#end SU8_2000
+
+# Alias:
+SU8 = SU8_2000
+
+
+
 ####################
 ##  Film aliases  ##
 ####################
